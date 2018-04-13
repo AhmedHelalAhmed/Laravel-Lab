@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container" style="margin-top: 70px;width: 50%;">
-<form>
+<form action="/posts" method="post">
     {{csrf_field()}}
   <div class="form-group">
     <label for="exampleInputTitle">Title</label>

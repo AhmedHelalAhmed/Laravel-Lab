@@ -30,4 +30,17 @@ class PostsController extends Controller
     {
         return view('posts.create');
     }
+
+
+    public function store(Request $request)
+    {
+        Post::create([
+            'title'=>$request->title,
+           
+        ]);
+        return redirect(route('posts.index'));
+    }
+
+
+
 }

@@ -4,7 +4,7 @@
     <div class="container text-center">
         <h1>ITI Blog All Posts</h1>
 
-        <div class="btn btn-success">Create Post</div>
+        <a class="btn btn-success" href="posts/create">Create Post</a>
         <p></p><p></p>
         <table class="table">
             <thead>

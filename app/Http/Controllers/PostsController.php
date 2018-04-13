@@ -11,7 +11,7 @@ class PostsController extends Controller
     {
         // dd("hello from posts");
         // return Post::all();
-        $posts=Post::all();
+        $posts = Post::all();
         // dd($posts);
         /**
          * posts the key can be access from the view
@@ -23,6 +23,11 @@ class PostsController extends Controller
          * posts is the directory in resources/views
          * call method index
          */
-        return view('posts.index',['posts'=>$posts]);
+        return view('posts.index', ['posts' => $posts]);
+    }
+
+    public function create()
+    {
+        return view('posts.create');
     }
 }

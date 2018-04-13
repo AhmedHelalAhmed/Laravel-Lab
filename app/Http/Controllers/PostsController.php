@@ -43,6 +43,14 @@ class PostsController extends Controller
         ]);
         return redirect(route('posts.index'));
     }
+    public function show($id)
+    {
+        // $post = DB::table(‘posts’)->find($id);
+        $post=Post::findOrFail($id);
+        // dd($post);
+        // return view('user.profile', ['user' => User::findOrFail($id)]);
+        return view('posts.show', ['post' => $post]);
+    }
 
 
 

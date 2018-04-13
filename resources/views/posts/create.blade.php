@@ -18,10 +18,10 @@
 
   <div class="form-group">
     <label for="exampleFormControlSelect1">Post Creator</label>
-    <select class="form-control" id="exampleFormControlSelect1" name="post-creator">
-      <option value="ahmed">Ahmed</option>
-      <option value="ali">ali</option>
-      <option value="diaa">diaa</option>
+    <select class="form-control" id="exampleFormControlSelect1" name="user_id">
+      @foreach ($users as $user)
+      <option value="{{$user->id}}">{{$user->name}}</option>
+      @endforeach
     </select>
   </div>
 

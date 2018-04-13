@@ -13,4 +13,5 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('posts.index');
+Route::get('posts','PostsController@index');

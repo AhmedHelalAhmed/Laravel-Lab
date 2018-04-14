@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Post;
 use App\User;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use App\Http\Requests\StorePostRequest;
 // use Illuminate\Support\Facades\Request;
 
 class PostsController extends Controller
@@ -37,11 +38,16 @@ class PostsController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(StorePostRequest $request)
     {
         // dd($request->all());
 
         Post::create($request->all());
+        // Post::create([
+        //     'title' => $request->title,
+        //     'description' => $request->description,
+        //     'user_id' => $request->user_id,
+        // ]);
         return redirect(route('posts.index'));
     }
     public function show($id)
@@ -77,7 +83,7 @@ class PostsController extends Controller
         //     'title' => $request->title,
 
         // ]) 
-              $post->title = $request->title;
+        $post->title = $request->title;
         $post->description = $request->description;
         $post->user_id = $request->user_id;
         $post->save();

@@ -7,6 +7,7 @@ use App\Post;
 use App\User;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use App\Http\Requests\StorePostRequest;
+use App\Http\Requests\UpdatePostRequest;
 // use Illuminate\Support\Facades\Request;
 
 class PostsController extends Controller
@@ -70,15 +71,16 @@ class PostsController extends Controller
         ]);
     }
 
-    public function update($id, Request $request)
+    public function update($id, UpdatePostRequest $request)
     {
         // try{
 
         // }catch (ModelNotFoundException $e ) {
 
         // }
+
         $post = Post::findOrFail($id);
-    
+        $request->rules($post);
         // $post->update([
         //     'title' => $request->title,
 

@@ -1,6 +1,18 @@
 @extends('layouts.master')
 
 @section('content')
+<!-- for show error  -->
+
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+<!-- for show error  -->
 <div class="container" style="margin-top: 70px;width: 50%;">
 <!-- form do not understnad post or get only  -->
 <!-- we add method field to make the laravel  -->

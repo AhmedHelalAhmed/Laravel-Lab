@@ -25,9 +25,9 @@
                     <td>{{ $post->created_at }}</td>
 
                     <td>
-                        <div class="btn btn-primary">Edit</div>
-                        <div class="btn btn-danger">Delete</div>
-                        <div class="btn btn-secondary">View</div>
+                        <a class="btn btn-primary">Edit</a>
+                        <a class="btn btn-danger">Delete</a>
+                        <a class="btn btn-secondary" href="posts/{{ $post->id }}">View</a>
                     </td>
                 </tr>
             @endforeach

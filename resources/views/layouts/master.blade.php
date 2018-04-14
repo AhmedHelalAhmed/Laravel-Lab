@@ -14,9 +14,19 @@
 </head>
 
 <body>
+    <header>
+        <nav class="navbar navbar-dark bg-dark">
+            <center>
+                <span class="text-white navbar-brand">ITI Blog</span>
+                <a class="text-white" href="/posts">All Posts</a>
+
+            </center>
+
+        </nav>
+    </header>
 
 
-@yield('content')
+    @yield('content')
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

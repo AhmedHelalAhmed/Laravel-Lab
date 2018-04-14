@@ -21,8 +21,7 @@
                 <th scope="row">{{ $post->id }}</th>
                 <td>{{ $post->title }}</td>
                 <td>{{ $post->user->name }}</td>
-                <td>{{ $post->created_at }}</td>
-
+                <td>{{ Carbon\Carbon::parse($post->created_at)->format('Y-m-d') }}</td>
                 <td>
 
                     <a class="btn btn-primary" href="/posts/{{ $post->id }}/edit">Edit</a>

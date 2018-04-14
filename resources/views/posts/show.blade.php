@@ -29,10 +29,10 @@
     <span class="card-title font-weight-bold">Name :-</span> {{$post->user->name}}
     </p>
         <p>
-    <span class="card-title font-weight-bold">Email :-</span> {{$post->user->name}}
+    <span class="card-title font-weight-bold">Email :-</span> {{$post->user->email}}
     </p>
         <p>
-    <span class="card-title font-weight-bold">Create At :-</span> {{$post->created_at}}
+    <span class="card-title font-weight-bold">Create At :-</span> {{Carbon\Carbon::parse($post->created_at)->format('l jS \\of F Y h:i:s A')}}
     </p>
   </div>
 </div>

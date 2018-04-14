@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
+
 
 class StorePostRequest extends FormRequest
 {
@@ -34,8 +36,15 @@ class StorePostRequest extends FormRequest
          * the name of 
          * the table 
          * in database
+         * it refelect into the form
+         * and give error  
+         * The selected user id is invalid.
+         * and not insert in database
          */
         return [
+            'user_id' => [
+                'exists:users,id'
+            ],
             'title'=>'required|min:3|unique:posts',
             'description'=>'required|min:10',
         ];

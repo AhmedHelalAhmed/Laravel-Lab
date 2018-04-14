@@ -33,7 +33,15 @@ class UpdatePostRequest extends FormRequest
          */
         $id = $this->route('id');
         $post = Post::find($id);
+        /**
+         * i validate in input with value user_id
+         * in table users
+         * in table users it's name is id 
+         */
         return [
+            'user_id' => [
+                'exists:users,id'
+            ],
             'title' => [
                 'required',
                 'min:3',

@@ -9,7 +9,7 @@
 
     {{csrf_field()}}
   <div class="form-group">
-    @method('PUT')
+    @method('PUT')   
   </div>
   <div class="form-group">
     <label for="exampleInputTitle">Title</label>

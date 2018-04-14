@@ -68,7 +68,7 @@ class PostsController extends Controller
 
     public function update($id, Request $request)
     {
-        // dd("test");
+        
         $post = Post::findOrFail($id);
         $post->title = $request->title;
         $post->description = $request->description;
@@ -77,5 +77,10 @@ class PostsController extends Controller
         return redirect(route('posts.index'));
     }
 
+    public function destroy($id, Request $request)
+    {
+        Post::destroy($id);
+        return back();
+    }
 
 }

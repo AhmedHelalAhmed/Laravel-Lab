@@ -34,6 +34,10 @@
                         </span>
                         <span class="form-group">
                             <button type="submit" class="btn btn-danger">Delete</button>
+
+                             <!--
+                                 one line can be in place of the javascript
+                                  <button onclick="return confirm('are you sure') " type="submit" class="btn btn-danger">Delete</button> -->
                         </span>
 
 

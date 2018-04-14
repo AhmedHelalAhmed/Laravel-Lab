@@ -4,7 +4,7 @@
     <div class="container text-center">
         <h1>ITI Blog All Posts</h1>
 
-        <a class="btn btn-success" href="posts/create">Create Post</a>
+        <a class="btn btn-success" href="/posts/create">Create Post</a>
         <p></p><p></p>
         <table class="table">
             <thead>
@@ -25,9 +25,9 @@
                     <td>{{ $post->created_at }}</td>
 
                     <td>
-                        <a class="btn btn-primary">Edit</a>
+                        <a class="btn btn-primary" href="/posts/{{ $post->id }}/edit">Edit</a>
                         <a class="btn btn-danger">Delete</a>
-                        <a class="btn btn-secondary" href="posts/{{ $post->id }}">View</a>
+                        <a class="btn btn-secondary" href="/posts/{{ $post->id }}">View</a>
                     </td>
                 </tr>
             @endforeach

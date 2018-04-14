@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use App\User;
+// use Illuminate\Support\Facades\Request;
 
 class PostsController extends Controller
 {
@@ -36,6 +37,8 @@ class PostsController extends Controller
 
     public function store(Request $request)
     {
+        // dd($request->all());
+
         Post::create([
             'title' => $request->title,
             'description' => $request->description,
@@ -46,12 +49,33 @@ class PostsController extends Controller
     public function show($id)
     {
         // $post = DB::table(‘posts’)->find($id);
-        $post=Post::findOrFail($id);
+        $post = Post::findOrFail($id);
         // dd($post);
         // return view('user.profile', ['user' => User::findOrFail($id)]);
         return view('posts.show', ['post' => $post]);
     }
 
+    public function edit($id)
+    {
+        $users = User::all();
+        $post = Post::findOrFail($id);
+        return view('posts.edit', [
+            'post' => $post,
+            'users' => $users,
+
+        ]);
+    }
+
+    public function update($id, Request $request)
+    {
+        // dd("test");
+        $post = Post::findOrFail($id);
+        $post->title = $request->title;
+        $post->description = $request->description;
+        $post->user_id = $request->user_id;
+        $post->save();
+        return redirect(route('posts.index'));
+    }
 
 
 }

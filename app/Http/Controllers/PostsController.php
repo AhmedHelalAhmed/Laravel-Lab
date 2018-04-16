@@ -42,8 +42,9 @@ class PostsController extends Controller
     public function store(StorePostRequest $request)
     {
         // dd($request->all());
+        // $request->only('title', 'description', 'user_id');
 
-        Post::create($request->all());
+        Post::create($request->only('title', 'description', 'user_id'));
         // Post::create([
         //     'title' => $request->title,
         //     'description' => $request->description,

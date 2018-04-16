@@ -35,7 +35,7 @@
                             {{ method_field('DELETE') }}
                         </span>
                         <span class="form-group">
-                            <button type="submit" class="btn btn-danger">Delete</button>
+                            <button type="submit" class="btn btn-danger" id="delete">Delete</button>
 
                              <!--
                                  one line can be in place of the javascript

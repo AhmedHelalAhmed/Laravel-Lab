@@ -14,7 +14,6 @@ class PostsController extends Controller
     {
         $posts = Post::paginate(2);
         return PostResource::collection($posts);
-
     }
 
     public function store(StorePostRequest $request)

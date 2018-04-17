@@ -16,7 +16,9 @@ class PostsController extends Controller
     {
         // dd("hello from posts");
         // return Post::all();
-        $posts = Post::all();
+        //$posts = Post::all();
+        //Eager Loading
+        $posts=Post::with("user")->get();
         // dd($posts);
         /**
          * posts the key can be access from the view

@@ -17,7 +17,6 @@ class Post extends Model
     
     public function user()
     {
-        //User::class == 'App\User'
         return $this->belongsTo(User::class);
     }
 

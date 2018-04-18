@@ -2,9 +2,6 @@
 
 @section('content')
 <div class="container" style="margin-top: 70px;width: 50%;">
-<!-- form do not understnad post or get only  -->
-<!-- we add method field to make the laravel  -->
-<!-- understand that the request is put -->
 <form action="/posts/{{$post->id}}" method="post">
 
     {{csrf_field()}}

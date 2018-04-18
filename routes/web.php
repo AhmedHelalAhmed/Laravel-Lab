@@ -25,3 +25,5 @@ Route::delete('/posts/{id}', 'PostsController@destroy')->name('posts.destroy')->
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
+Route::get('login/github', 'Auth\LoginController@redirectToProvider');
+Route::get('login/github/callback', 'Auth\LoginController@handleProviderCallback');

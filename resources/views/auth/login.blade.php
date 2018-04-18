@@ -25,6 +25,7 @@
                             </div>
                         </div>
 
+
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
@@ -38,7 +39,6 @@
                                 @endif
                             </div>
                         </div>
-
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
                                 <div class="checkbox">
@@ -54,6 +54,15 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Login') }}
                                 </button>
+
+
+                                {{--<a class="btn btn-link" href="{{ "/login/github" }}">--}}
+                                    {{--{{ ('Login with github') }}--}}
+                                {{--</a>--}}
+                                <br><br>
+                                <div>
+                                    <a type="button" class="btn btn-outline-dark" href="/login/github">Login with github</a>
+                                </div>
 
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
                                     {{ __('Forgot Your Password?') }}

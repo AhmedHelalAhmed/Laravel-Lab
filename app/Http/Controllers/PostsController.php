@@ -6,28 +6,19 @@ use Illuminate\Http\Request;
 use App\Post;
 use App\User;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
-// use Illuminate\Support\Facades\Request;
+
+
+use Response;
+
 
 class PostsController extends Controller
 {
     public function index()
     {
-        // dd("hello from posts");
-        // return Post::all();
         $posts = Post::all();
-        // dd($posts);
-        /**
-         * posts the key can be access from the view
-         * $posts just variable contain array comes from database
-         */
-
-        /**
-         * posts.index
-         * posts is the directory in resources/views
-         * call method index
-         */
         return view('posts.index', ['posts' => $posts]);
     }
 
@@ -41,23 +32,20 @@ class PostsController extends Controller
 
     public function store(StorePostRequest $request)
     {
-        // dd($request->all());
-        // $request->only('title', 'description', 'user_id');
 
         Post::create($request->only('title', 'description', 'user_id'));
-        // Post::create([
-        //     'title' => $request->title,
-        //     'description' => $request->description,
-        //     'user_id' => $request->user_id,
-        // ]);
+
         return redirect(route('posts.index'));
     }
+
     public function show($id)
     {
-        // $post = DB::table(‘posts’)->find($id);
-        $post = Post::findOrFail($id);
-        // dd($post);
-        // return view('user.profile', ['user' => User::findOrFail($id)]);
+        try {
+            $post = Post::findOrFail($id);
+        } catch (ModelNotFoundException $e) {
+            return Response::view('errors.404');
+        }
+
         return view('posts.show', ['post' => $post]);
     }
 
@@ -74,26 +62,18 @@ class PostsController extends Controller
 
     public function update($id, UpdatePostRequest $request)
     {
-        // try{
 
-        // }catch (ModelNotFoundException $e ) {
+        try {
+            $post = Post::findOrFail($id);
+        } catch (ModelNotFoundException $e) {
+            return Response::view('errors.404');
+        }
+        $post->update($request->all());
 
-        // }
-
-        $post = Post::findOrFail($id);
-        $request->rules($post);
-        // $post->update([
-        //     'title' => $request->title,
-
-        // ]) 
-        $post->title = $request->title;
-        $post->description = $request->description;
-        $post->user_id = $request->user_id;
-        $post->save();
         return redirect(route('posts.index'));
     }
 
-    public function destroy($id, Request $request)
+    public function destroy($id)
     {
         Post::destroy($id);
         return back();

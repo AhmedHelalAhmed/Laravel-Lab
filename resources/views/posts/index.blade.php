@@ -1,12 +1,12 @@
 @extends('layouts.master') @section('content')
-<div class="container text-center">
-    <h1>ITI Blog All Posts</h1>
+    <div class="container text-center">
+        <h1>ITI Blog All Posts</h1>
 
-    <a class="btn btn-success" href="/posts/create">Create Post</a>
-    <p></p>
-    <p></p>
-    <table class="table">
-        <thead>
+        <a class="btn btn-success" href="/posts/create">Create Post</a>
+        <p></p>
+        <p></p>
+        <table class="table">
+            <thead>
             <tr>
                 <th scope="col"># Pagination Bouns</th>
                 <th scope="col">Title</th>
@@ -15,9 +15,10 @@
                 <th scope="col">Slug</th>
                 <th scope="col">Actions</th>
             </tr>
-        </thead>
-        <tbody>
+            </thead>
+            <tbody>
             @foreach ($posts as $post)
+
             <tr>
                 <th scope="row">{{ $post->id }}</th>
                 <td>{{ $post->title }}</td>
@@ -26,43 +27,29 @@
                 <td>{{ $post->slug }}</td>
                 <td>
 
-                    <a class="btn btn-primary" href="/posts/{{ $post->id }}/edit">Edit</a>
+
+                        <a class="btn btn-primary" href="/posts/{{ $post->id }}/edit">Edit</a>
 
 
-                    <form method="POST" action="/posts/{{ $post->id }}" id="delete" style="display:inline;">
-                        {{csrf_field()}}
-                        <span class="form-group">
+                        <form method="POST" action="/posts/{{ $post->id }}" id="delete" style="display:inline;">
+                            {{csrf_field()}}
+                            <span class="form-group">
                             {{ method_field('DELETE') }}
                         </span>
-                        <span class="form-group">
-                            <button type="submit" class="btn btn-danger" id="delete">Delete</button>
+                            <span class="form-group">
 
-                             <!--
-                                 one line can be in place of the javascript
-                                  <button onclick="return confirm('are you sure') " type="submit" class="btn btn-danger">Delete</button> -->
+                                  <button onclick="return confirm('Are you sure ?') " type="submit"
+                                          class="btn btn-danger">Delete</button>
                         </span>
 
+                        </form>
+                        <a class="btn btn-secondary" href="/posts/{{ $post->id }}">View</a>
 
-                    </form>
-
-
-
-                    <a class="btn btn-secondary" href="/posts/{{ $post->id }}">View</a>
-
-                </td>
-            </tr>
+                    </td>
+                </tr>
             @endforeach
-        </tbody>
-    </table>
-</div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script>
-    $('#delete').submit(function (e) {
-        e.preventDefault(); // to stop the form from submitting
-        user_input = confirm("Are you sure you want to delete ?");
-        if (user_input) {
-            this.submit(); // If all the validations succeeded
-        }
-    });
-</script>
+            </tbody>
+        </table>
+    </div>
+
 @endsection
